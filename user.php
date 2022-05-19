@@ -8,9 +8,9 @@
 </head>
 <body>
     <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <span class="navbar-brand">
-                <?php
+                <!-- <?php
                     require './dao/connect_db.php';
 
                     $sql = "select uname from user where id={$_COOKIE['id']}";
@@ -22,7 +22,7 @@
                     }
 
                     $conn->close();
-                ?>
+                ?> -->
             </span>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
@@ -42,9 +42,22 @@
         <br>
 
         <form action="./src/change_username.php" method="POST">
-            <h4>修改用户名</h4>
+            <h4>当前用户名:
+            <?php
+                    require './dao/connect_db.php';
+
+                    $sql = "select uname from user where id={$_COOKIE['id']}";
+                    $result = $conn->query($sql);
+                        
+                    if ($result->num_rows > 0) {
+                        $row = $result->fetch_assoc();
+                        echo $row['uname'];
+                    }
+
+                    $conn->close();
+                ?></h4>
             <div class="form-group">
-                <label>新用户名：</label>
+               
                 <input class="form-control" name="uname">
             </div>
             <button type="submit" class="btn btn-primary">修改</button>

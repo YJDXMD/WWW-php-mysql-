@@ -32,11 +32,11 @@
     
     <div class="container table-responsive text-center shadow-lg">
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <span class="navbar-brand">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- <span class="navbar-brand">
                 <?php 
-                    $sql = "SELECT uname FROM user where id=$uid";
-                    $result = $conn->query($sql);
+                   $sql = "select uname from user where id=$uid";
+                   $result = $conn->query($sql);
                     
                     if ($result->num_rows > 0) {
                         $row = $result->fetch_assoc();
@@ -46,7 +46,7 @@
                         echo "获取用户名失败";
                     }
                 ?>
-            </span>
+            </span> -->
             
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
@@ -62,7 +62,7 @@
                 </ul>
                 <form class="form-inline" action="" method="POST">
                     <input class="form-control mr-sm-2" type="search" placeholder="" aria-label="Search" name="search">
-                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">搜索</button>
+                    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">搜索</button>
                 </form>
             </div>
         </nav>
@@ -124,7 +124,7 @@
                         }
                     }
                     else {
-                        echo "<tr><td colspan='5'>未查询到当前会员数据</td></tr>";
+                        echo "<tr><td colspan='5'></td></tr>";
                     }
 
                     $conn->close();
@@ -132,17 +132,17 @@
                 <tr>
                     <form action="./src/add.php" method="POST">
                         <td>
-                            <input class="form-control" type="number" name="sid">
+                            <input class="form-control" name="sid">
                         </td>
                         <td>
                             <input class="form-control" name="name">
                         </td>
                         <td>
-                            <input class="form-control" type="number" name="age">
+                            <input class="form-control" name="age">
                         </td>
                         <td>
                             <select class="form-control" name="sex">
-                                <option value="男"></option>
+                                <option value="女"></option>
                                 <option value="男">男</option>
                                 <option value="女">女</option>
                             </select>

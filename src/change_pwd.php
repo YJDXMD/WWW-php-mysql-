@@ -6,7 +6,7 @@
     $cnpwd = $_POST['cnpwd'];
 
     if ($npwd != $cnpwd) {
-        alert('两次密码不一致，请重输');
+        alert('两次密码不一致');
         href('../user.php');
     }
 
@@ -27,7 +27,7 @@
         }
     }
     else {
-        alert('原密码不正确。');
+        alert('原密码不正确');
         href("../user.php");
     }
 
